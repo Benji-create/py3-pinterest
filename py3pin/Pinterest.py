@@ -148,7 +148,7 @@ class Pinterest:
             [
                 ("Referer", HOME_PAGE),
                 ("X-Requested-With", "XMLHttpRequest"),
-                ("Accept", "application/json"),
+                ("Accept", "application/json, text/javascript, */*, q=0.01"),
                 ("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8"),
                 ("User-Agent", self.user_agent),
             ]
@@ -341,8 +341,14 @@ class Pinterest:
         url = self.req_builder.buildGet(
             url=BOARDS_RESOURCE, options=options, source_url=source_url
         )
+        
+        # Add the additional required headers
+        extra_headers = {
+            'x-pinterest-pws-handler': 'www/[username]/_saved.js',
+            'x-pinterest-source-url': '/{}/_saved/'.format(username)
+        }
 
-        result = self.get(url=url).json()
+        result = self.get(url=url, headers=extra_headers).json()
         bookmark = result["resource"]["options"]["bookmarks"][0]
 
         self.bookmark_manager.add_bookmark(
