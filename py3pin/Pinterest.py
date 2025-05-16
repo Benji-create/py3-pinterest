@@ -34,7 +34,7 @@ USER_RESOURCE = "https://www.pinterest.com/_ngjs/resource/UserResource/get/"
 BOARD_PICKER_RESOURCE = (
     "https://www.pinterest.com/resource/BoardPickerBoardsResource/get/"
 )
-BOARDS_RESOURCE = "https://www.pinterest.com/_ngjs/resource/BoardsResource/get/"
+BOARDS_RESOURCE = "https://www.pinterest.com/resource/BoardsResource/get/"
 CREATE_BOARD_RESOURCE = "https://www.pinterest.com/resource/BoardResource/create/"
 FOLLOW_BOARD_RESOURCE = "https://www.pinterest.com/resource/BoardFollowResource/create/"
 UNFOLLOW_BOARD_RESOURCE = (
